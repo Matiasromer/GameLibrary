@@ -18,7 +18,7 @@
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="474,204,0,0" TextWrapping="Wrap" Text="{Binding SelectedGame.dato}" VerticalAlignment="Top" Height="51" Width="180" RenderTransformOrigin="0.5,0.5"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="182,504,0,0" TextWrapping="Wrap" Text="{Binding NewGame.title, Mode=TwoWay}" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" PlaceholderText="Title"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="262,504,0,0" TextWrapping="Wrap" Text="{Binding NewGame.pris, Mode=TwoWay}" VerticalAlignment="Top" PlaceholderText="Pris"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding NewGame.dato, Mode=TwoWay}" VerticalAlignment="Top" Margin="348,504,0,0" PlaceholderText="Dato"/>
-        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="432,505,0,0" TextWrapping="Wrap" Text="{Binding NewGame.comment, Mode=TwoWay}" VerticalAlignment="Top" PlaceholderText="Comment"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding NewGame.dato, Mode=TwoWay}" VerticalAlignment="Top" Margin="348,504,0,0" PlaceholderText="MM/DD/YYYY"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="492,505,0,0" TextWrapping="Wrap" Text="{Binding NewGame.comment, Mode=TwoWay}" VerticalAlignment="Top" PlaceholderText="Comment" Height="69"/>
     </Grid>
 </Page>

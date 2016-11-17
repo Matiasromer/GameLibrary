@@ -39,10 +39,15 @@ namespace GameLibrary.ViewModel
         public GameViewModel()
         {
             Gameliste = new Model.obsGamesList();
+            AddGameCommand = new RelayCommand(AddNewGame,null);
         }
 
+        public void AddNewGame()
+        {
+            Gameliste.Add(NewGame);
+        }
 
+        public RelayCommand AddGameCommand { get; set; }
 
-        
     }
 }
