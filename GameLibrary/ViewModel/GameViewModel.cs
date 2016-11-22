@@ -33,13 +33,19 @@ namespace GameLibrary.ViewModel
             }
         }
 
+        public AddGameCommand AddGameCommand { get; set; }
+
+
         public Model.Game NewGame { get; set; }
 
 
         public GameViewModel()
         {
             Gameliste = new Model.obsGamesList();
-            AddGameCommand = new RelayCommand(AddNewGame,null);
+            AddGameCommand = new AddGameCommand(AddNewGame);
+            NewGame = new Model.Game();
+            
+            //AddGameCommand = new RelayCommand(AddNewGame,null);
         }
 
         public void AddNewGame()
@@ -47,7 +53,7 @@ namespace GameLibrary.ViewModel
             Gameliste.Add(NewGame);
         }
 
-        public RelayCommand AddGameCommand { get; set; }
+        //public RelayCommand AddGameCommand { get; set; }
 
     }
 }
