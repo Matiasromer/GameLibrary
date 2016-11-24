@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Newtonsoft.Json;
+using Windows.Storage;
 
 namespace GameLibrary.ViewModel
 {
@@ -39,6 +41,16 @@ namespace GameLibrary.ViewModel
 
         public Model.Game NewGame { get; set; }
 
+        public SaveGameCommand SaveGameCommand  { get; set; }
+        //public string GetGamelistAsJson()
+        //{
+        //    string jsonText = JsonConvert.SerializeObject(Gameliste);
+        //    return jsonText;
+        //}
+
+        StorageFolder localfolder = null;
+
+        private readonly string filnavn = "Jsontext.json";
 
         public GameViewModel()
         {
@@ -46,10 +58,24 @@ namespace GameLibrary.ViewModel
             AddGameCommand = new AddGameCommand(AddNewGame);
             NewGame = new Model.Game();
             DeleteGameCommand = new DeleteGameCommand(DeleteGame);
+            SaveGameCommand = new SaveGameCommand(GemDataTilDiskAsnc);
 
-            
+            localfolder = ApplicationData.Current.LocalFolder;
+
             //AddGameCommand = new RelayCommand(AddNewGame,null);
         }
+
+
+        public async void GemDataTilDiskAsnc()
+        {
+            string JsonText = this.Gameliste.GetJson();
+            StorageFile file = await localfolder.CreateFileAsync(filnavn, CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, JsonText);
+        }
+
+
+
+        
 
         public void AddNewGame()
         {

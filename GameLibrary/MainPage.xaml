@@ -16,12 +16,14 @@
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="427" Margin="163,147,0,0" VerticalAlignment="Top" Width="298" ItemsSource="{Binding Gameliste}" SelectedItem="{Binding SelectedGame, Mode=TwoWay}"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="474,224,0,0" TextWrapping="Wrap" Text="{Binding SelectedGame.comment}" VerticalAlignment="Top" Height="56" Width="290" RenderTransformOrigin="0.5,0.5"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="474,152,0,0" TextWrapping="Wrap" Text="{Binding SelectedGame.dato}" VerticalAlignment="Top" Height="51" Width="180" RenderTransformOrigin="0.5,0.5"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="678,504,0,0" TextWrapping="Wrap" Text="{Binding NewGame.title, Mode=TwoWay}" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" PlaceholderText="Title" Height="32"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="790,504,0,0" TextWrapping="Wrap" Text="{Binding NewGame.pris, Mode=TwoWay}" VerticalAlignment="Top" PlaceholderText="Pris"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="620,505,0,0" TextWrapping="Wrap" Text="{Binding NewGame.title, Mode=TwoWay}" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" PlaceholderText="Title" Height="32" Width="94"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="758,505,0,0" TextWrapping="Wrap" Text="{Binding NewGame.pris, Mode=TwoWay}" VerticalAlignment="Top" PlaceholderText="Pris" Width="92"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding NewGame.dato, Mode=TwoWay}" VerticalAlignment="Top" Margin="888,504,0,0" PlaceholderText="DD/MM/YYYY"/>
         <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="1028,505,0,0" TextWrapping="Wrap" Text="{Binding NewGame.comment, Mode=TwoWay}" VerticalAlignment="Top" PlaceholderText="Comment" Height="69"/>
 
-        <Button x:Name="Add" Content="Add Game" HorizontalAlignment="Left" Margin="780,591,0,0" VerticalAlignment="Top" Command="{Binding AddGameCommand}"/>
-        <Button x:Name="Delete" Content="Delete Game" HorizontalAlignment="Left" Margin="897,589,0,0" VerticalAlignment="Top" Command="{Binding DeleteGameCommand}"/>
+        <Button x:Name="Add" Content="Add Game" HorizontalAlignment="Left" Margin="620,589,0,0" VerticalAlignment="Top" Command="{Binding AddGameCommand}"/>
+        <Button x:Name="Delete" Content="Delete Game" HorizontalAlignment="Left" Margin="758,589,0,0" VerticalAlignment="Top" Command="{Binding DeleteGameCommand}"/>
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="888,589,0,0" VerticalAlignment="Top" Command="{Binding SaveGameCommand}" Width="64"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="-44,536,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
