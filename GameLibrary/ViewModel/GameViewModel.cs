@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Newtonsoft.Json;
 using Windows.Storage;
+using Windows.UI.Popups;
 
 namespace GameLibrary.ViewModel
 {
@@ -42,6 +43,8 @@ namespace GameLibrary.ViewModel
         public Model.Game NewGame { get; set; }
 
         public SaveGameCommand SaveGameCommand  { get; set; }
+
+        public HentDataCommand HentDataCommand { get; set; }
         //public string GetGamelistAsJson()
         //{
         //    string jsonText = JsonConvert.SerializeObject(Gameliste);
@@ -60,9 +63,32 @@ namespace GameLibrary.ViewModel
             DeleteGameCommand = new DeleteGameCommand(DeleteGame);
             SaveGameCommand = new SaveGameCommand(GemDataTilDiskAsnc);
 
+            HentDataCommand = new HentDataCommand(HentdataFraDiscAsync);
+
             localfolder = ApplicationData.Current.LocalFolder;
 
-            //AddGameCommand = new RelayCommand(AddNewGame,null);
+            //AddGameCommand = new RelayCommand(AddNewGame,null);          
+
+
+        }
+
+        public async void HentdataFraDiscAsync()
+        {
+           
+        try
+            {
+                this.Gameliste.Clear();
+                StorageFile file = await localfolder.GetFileAsync(filnavn);
+                string jsonText = await FileIO.ReadTextAsync(file);
+                Gameliste.indsætJson(jsonText);
+            }
+
+        catch
+            {
+                MessageDialog messageDialog = new MessageDialog("Filnavn højst sandsynligt ændret eller der ikke er gemt");
+                await messageDialog.ShowAsync();
+            }
+            
         }
 
 
@@ -71,11 +97,7 @@ namespace GameLibrary.ViewModel
             string JsonText = this.Gameliste.GetJson();
             StorageFile file = await localfolder.CreateFileAsync(filnavn, CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(file, JsonText);
-        }
-
-
-
-        
+        }        
 
         public void AddNewGame()
         {

@@ -30,5 +30,15 @@ namespace GameLibrary.Model
             return json;
         }
 
+        public void indsætJson(string jsonText)
+        {
+            List<Game> NyListe = JsonConvert.DeserializeObject<List<Game>>(jsonText);
+
+            foreach (var Game in NyListe)
+            {
+                this.Add(Game);
+            }
+        }
+
     }
 }

@@ -25,5 +25,6 @@
         <Button x:Name="Delete" Content="Delete Game" HorizontalAlignment="Left" Margin="758,589,0,0" VerticalAlignment="Top" Command="{Binding DeleteGameCommand}"/>
         <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="888,589,0,0" VerticalAlignment="Top" Command="{Binding SaveGameCommand}" Width="64"/>
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="-44,536,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Data" Content="Hent" HorizontalAlignment="Left" Margin="1003,589,0,0" VerticalAlignment="Top" Command="{Binding HentDataCommand}"/>
     </Grid>
 </Page>
